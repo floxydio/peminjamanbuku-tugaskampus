@@ -1,0 +1,87 @@
+/* Login Page */
+* {
+    box-sizing: content-box;
+    font-family: sans-serif;
+    background-color: #1E2B39;
+}
+
+/* .menu {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu_item {
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+} */
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.form_login {
+    text-align: center;
+    color: white;
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px 0px #2B3E50;
+}
+
+.form_group {
+    margin-top: 40px;
+}
+
+.form_group input, ::placeholder {
+    margin-top: 10px;
+    color: white;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #2B3E50;
+    padding-left: 10px;
+}
+.form_submit {
+    margin-top: 20px;
+    width: 250px;
+    margin-bottom: 20px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #2B3E50;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.form_textrich{
+    margin-top: 30px;
+    color: white;
+    padding-left: 10px;
+}
+
+.register_rich {
+    color: #0597DA;
+    text-decoration: none;
+}
+
+/*  */
+
+
+.register_form {
+    text-align: center;
+    color: white;
+    width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px 0px #2B3E50;
+}
