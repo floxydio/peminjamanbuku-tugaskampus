@@ -55,14 +55,38 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Components</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        <a class="collapse-item" href="cards.html">Cards</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed"  href="{{route('komplain')}}" ">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Komplain</span>
+                    <span>Utilities</span>
                 </a>
-
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -337,156 +361,28 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Komplain</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
+                    <form action="{{route('komplain.send')}}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Nama</label>
+                            <input type="text" class="form-control" name="nama" id="exampleFormControlInput1"
+                                placeholder="Nama">
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Komentar</label>
+                            <textarea name="komentar" id="exampleFormControlTextarea1" class="form-control"
+                                rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
                     <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Buku</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$book->count()}}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    @foreach ($book as $book)
-                    <div class="row my-5">
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <img src="{{$book->file}}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{$book->title}}</h5>
-                                    <p class="card-text">{{$book->description}}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            {{-- <a href="{{route('book.show',$book->id)}}" class="btn btn-sm btn-outline-secondary">View</a>
-                                            <a href="{{route('book.edit',$book->id)}}" class="btn btn-sm btn-outline-secondary">Edit</a> --}}
-                                        </div>
-                                        <button class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">Pinjam</button>
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                              <div class="modal-content">
-                                                <form method="POST" action="{{route("peminjamanbuku.send")}}">
-                                                    @csrf
-
-                                                <div class="modal-header">
-                                                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                  </button>
-                                                </div>
-                                                <div class="modal-body">
-
-                                                    <div class="form-group">
-                                                        <label for="name">Nama</label>
-                                                        <input type="text" name="nama" class="form-control" id="nama" aria-describedby="emailHelp" placeholder="Nama">
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="buku">Nama Buku</label>
-                                                        <input type="text" name="nama_buku" value='{{old('nama',$book->title)}}' class="form-control" placeholder="Nama Buku" readonly>
-                                                      </div>
-                                                    <div class="form-group">
-                                                        <label for="name">Ajukan sampai tanggal</label>
-                                                        <input type="date" name="tanggal" class="form-control" id="tanggal" placeholder="Enter your date">
-                                                      </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <input type="submit" class="btn btn-primary" value="Submit"></input>
-                                                </div>
-                                              </div>
-
-                                            </form>
-                                            </div>
-                                          </div>
-                                          
-                                          
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-
+                 
                     <!-- Content Row -->
                 <!-- /.container-fluid -->
 
@@ -554,4 +450,4 @@
 
 </body>
 
-</html>
+</html>     

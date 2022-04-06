@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Buku;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\User;
@@ -29,3 +30,10 @@ Route::get("/register", function() {
 
 // Dashboard
 Route::get("/dashboard", [User::class, 'index'])->name("dashboard");
+
+// Komplain
+
+Route::get("/komplain", [Buku::class, 'komplain'])->name('komplain');
+
+Route::post("/komplain/send", [Buku::class, 'sendKomplain'])->name('komplain.send');
+Route::post("/peminjamanbuku", [Buku::class, 'sendPinjam'])->name('peminjamanbuku.send');

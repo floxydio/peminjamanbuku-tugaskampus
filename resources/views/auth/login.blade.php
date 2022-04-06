@@ -8,13 +8,6 @@
     <title>Login</title>
 </head>
 <body>
-    <!-- <header class="menu">
-        <h2>Perpustakaan Bahagia</h2>
-        <div class="menu_right">
-            <a href="#" class="menu_item">Sign In</a>
-            <a href="#" class="menu_item">Register</a>
-        </div>
-    </header> -->
     <div class="form_login">
         <h2>Login Area</h2>
         <form method="POST" action="{{route('login.save')}}">

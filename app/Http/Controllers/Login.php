@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class Login extends Controller
 {
@@ -23,6 +24,7 @@ class Login extends Controller
         ];
         // dd($data);
         if (Auth::Attempt($data)) {
+            Session::flash('sukses','Berhasil Login');
             return redirect('dashboard');
         }else{
             return redirect('/');
@@ -30,6 +32,7 @@ class Login extends Controller
     }
     public function logout()
     {
+        Session::flash('logout','Berhasil Logout');
         Auth::logout();
         return redirect('/login');
     }
