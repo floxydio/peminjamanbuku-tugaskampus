@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('dashboard')}}">
+                <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -55,38 +55,14 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed"  href="{{route('komplain')}}" ">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Komplain</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
+
             </li>
 
             <!-- Divider -->
@@ -94,10 +70,12 @@
 
             <!-- Heading -->
         
-            <!-- Nav Item - Pages Collapse Menu -->
-     
-            <!-- Nav Item - Charts -->
-        
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -328,42 +306,73 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Komplain</h1>
+                        <h1 class="h3 mb-0 text-gray-800"> Dashboard</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
-                    <form action="{{route('komplain.send')}}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Nama</label>
-                            <input type="text" class="form-control" name="nama" id="exampleFormControlInput1"
-                                placeholder="Nama">
-                        </div>
-                    
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Komentar</label>
-                            <textarea name="komentar" id="exampleFormControlTextarea1" class="form-control"
-                                rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <!-- Content Row -->
+                    <div class="row">
 
-                    <!-- Content Row -->
-                 
-                    <!-- Content Row -->
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Buku</div>
+                                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">{{$book->count()}}</div> --}}
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                     
+                    </div>
+
+                    
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Nama Buku</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Aksi</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($historyUser as $history)
+                          <tr>
+                            <th scope="row">{{$loop->index+1}}</th>
+                            <td>{{$history->nama}}</td>
+                            <td>{{$history->namabuku}}</td>
+                            <td>{{$history->tanggal}}</td>
+                            <td>
+                                {{-- <form method="POST" action="{{route("peminjamanbuku.delete")}}"> --}}
+
+                                </form>
+                            </td>
+                          </tr>
+                          
+                      @endforeach
+                        </tbody>
+                      </table>
+                  <!-- Content Row -->
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+        
             <!-- End of Footer -->
 
         </div>
@@ -417,4 +426,4 @@
 
 </body>
 
-</html>     
+</html>

@@ -38,4 +38,9 @@ class Buku extends Controller
       $pinjam->save();
       return redirect("/dashboard");
     }
+    public function deletePinjam($id) {
+      $pinjam = Peminjaman::find($id);
+      $pinjam->delete();
+      return redirect("/dashboard-admin");
+    }
 }

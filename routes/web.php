@@ -30,6 +30,7 @@ Route::get("/register", function() {
 
 // Dashboard
 Route::get("/dashboard", [User::class, 'index'])->name("dashboard");
+Route::get("/dashboard-admin", [User::class, 'indexAdmin'])->name("dashboardadmin");
 
 // Komplain
 
@@ -37,3 +38,4 @@ Route::get("/komplain", [Buku::class, 'komplain'])->name('komplain');
 
 Route::post("/komplain/send", [Buku::class, 'sendKomplain'])->name('komplain.send');
 Route::post("/peminjamanbuku", [Buku::class, 'sendPinjam'])->name('peminjamanbuku.send');
+Route::delete("/peminjamanbuku/delete/{id}", [Buku::class, 'deletePinjam'])->name('peminjamanbuku.delete');

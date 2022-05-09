@@ -5,15 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class Login extends Controller
 {
     public function index()
     {
         if (Auth::check()) {
-            return redirect('dashboard');
+            if(Auth::user()->role == "admin") {
+              return redirect("dashboard-admin");
+            } else {
+                return redirect("dashboard");
+            }
         }else{
             return view('auth/login');
+            
         }
     }
     public function save(Request $request)
@@ -25,7 +31,11 @@ class Login extends Controller
         // dd($data);
         if (Auth::Attempt($data)) {
             Session::flash('sukses','Berhasil Login');
-            return redirect('dashboard');
+            if(Auth::user()->role == "admin") {
+                return redirect("dashboard-admin");
+            } else {
+                return redirect("dashboard");
+            }
         }else{
             return redirect('/');
         }
