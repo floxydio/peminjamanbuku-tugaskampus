@@ -39,3 +39,8 @@ Route::get("/komplain", [Buku::class, 'komplain'])->name('komplain');
 Route::post("/komplain/send", [Buku::class, 'sendKomplain'])->name('komplain.send');
 Route::post("/peminjamanbuku", [Buku::class, 'sendPinjam'])->name('peminjamanbuku.send');
 Route::delete("/peminjamanbuku/delete/{id}", [Buku::class, 'deletePinjam'])->name('peminjamanbuku.delete');
+
+
+// export 
+
+Route::get('user/export/', [Buku::class, 'export'])->name('user.export');

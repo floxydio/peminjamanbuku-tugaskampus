@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PeminjamanExport;
 use App\Models\Komplain;
 use App\Models\Peminjaman;
-use Illuminate\Http\Request;
-use UserPeminjaman;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Buku extends Controller
 {
@@ -39,8 +39,13 @@ class Buku extends Controller
       return redirect("/dashboard");
     }
     public function deletePinjam($id) {
+      dd($id);
       $pinjam = Peminjaman::find($id);
       $pinjam->delete();
       return redirect("/dashboard-admin");
+    }
+    public function export()
+    {
+        return Excel::download(new PeminjamanExport, 'peminjaman.xlsx');
     }
 }
