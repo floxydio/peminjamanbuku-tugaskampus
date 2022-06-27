@@ -25,4 +25,15 @@ class User extends Controller
         return view('dashboard/dashboard-admin', compact('sss', 'count', 'historyUser'));
     }
 
+    public function changeStatusUser($id) {
+        // dd($id);
+        DB::table("user_peminjaman")->where("id", $id)->update(["status" => 1]);
+        return redirect("/dashboard-admin");
+    }
+    public function changeStatusUserDisable($id) {
+        // dd($id);
+        DB::table("user_peminjaman")->where("id", $id)->update(["status" => 2]);
+        return redirect("/dashboard-admin");
+    }
+
 }

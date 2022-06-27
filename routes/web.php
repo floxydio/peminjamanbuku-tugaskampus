@@ -31,7 +31,8 @@ Route::get("/register", function() {
 // Dashboard
 Route::get("/dashboard", [User::class, 'index'])->name("dashboard");
 Route::get("/dashboard-admin", [User::class, 'indexAdmin'])->name("dashboardadmin");
-
+Route::get("/dashboard-admin/{id}", [User::class, 'changeStatusUser'])->name("change.status.peminjaman");
+Route::get("/dashboard-admin/{id}/disable", [User::class, 'changeStatusUserDisable'])->name("change.status.peminjaman.disable");
 // Komplain
 
 Route::get("/komplain", [Buku::class, 'komplain'])->name('komplain');
